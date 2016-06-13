@@ -1,0 +1,14 @@
+{
+  "name": "neural-style-droplet",
+  "version": "1.0.0",
+  "description": "A quick way to spin up a Digital Ocean droplet preloaded with jcjohnson/neural-style",
+  "main": "deploy.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Eric Krawczyk",
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.72.0"
+  }
+}

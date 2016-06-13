@@ -1,0 +1,34 @@
+#cloud-config
+
+users:
+  - name: ubuntu
+    groups: sudo
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh-authorized-keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDmY0/Jg/IEw3Ex6j+lX1TfKLcwrNTTQqDoVo57Vo6hKqX6fslKnXOIYrWNyL9LzIZOCtyseC9UMasMSfSMEfWna9mSM38zFXQJAJMH0cvZHKmQtKgg4m8fkCYULCH7dijeuPcU4FYAJpWfj9dEmDfC7TiqH0Li3IzwiKXErpTaYL3XAQnG+pYEHyPfW6Ym+DKLdCsmVSRqKVaLchJ+MS++8O6vQVFiWGtj9Ih7vW8croH397vpADT4Yyjn00TixpKSPilJe690BchGvbHC3oULf6iF6GBGvBurhTCQb3Fm0QgjNwGqgdWhAUEBVPNFm1/+FefjYcaAT/g6cvrYumHn ekraw@umich.edu
+
+package_update: true
+package_upgrade: true
+packages:
+  - git
+  - libprotobuf-dev
+  - protobuf-compiler
+
+runcmd:
+  - cd /home/ubuntu
+  - git clone https://github.com/torch/distro.git /home/ubuntu/torch --recursive
+  - cd /home/ubuntu/torch
+  - bash install-deps
+  - ./install.sh
+  - echo ". /home/ubuntu/torch/install/bin/torch-activate" >> /home/ubuntu/.bashrc
+  - source /home/ubuntu/.bashrc
+  - luarocks install loadcaffe
+  - cd /home/ubuntu
+  - git clone https://github.com/jcjohnson/neural-style.git
+  - cd neural-style
+  - sh models/download_models.sh
+  - source /home/ubuntu/.bashrc
+  - echo true > /home/ubuntu/cloud-init-complete
+
+output : { all : '| tee -a /var/log/cloud-init-output.log' }
