@@ -23,7 +23,7 @@ runcmd:
   - ./install.sh
   - echo ". /home/ubuntu/torch/install/bin/torch-activate" >> /home/ubuntu/.bashrc
   - source /home/ubuntu/.bashrc
-  - luarocks install loadcaffe
+  - sudo luarocks install loadcaffe
   - cd /home/ubuntu
   - git clone https://github.com/jcjohnson/neural-style.git
   - cd neural-style

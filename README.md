@@ -13,4 +13,4 @@ Usage:
   - SSH into your droplet (I recommend [pearkes/tugboat](https://github.com/pearkes/tugboat))
   - you can monitor `/var/log/cloud-init-output.log` for the installation of dependencies. Alternatively, once all cloud-config has completed, a file `cloud-init-complete` will appear in the home directory
   - SCP your images to your droplet
-  - run `th neural_style.lua -style_image <image.jpg> -content_image <image.jpg>` to try it out!
+  - `cd` into `~/neural-style` and run `th neural_style.lua -style_image <image.jpg> -content_image <image.jpg>` to try it out!
