@@ -8,7 +8,7 @@ const userData = fs.readFileSync('cloud-config.yml', 'utf-8');
 var payload = {
   "name": "ubuntu",
   "region": "nyc3",
-  "size": "512mb",
+  "size": "16gb",
   "image": "ubuntu-14-04-x64",
   "ssh_keys": [1708668],
   "backups": false,

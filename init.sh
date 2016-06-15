@@ -6,8 +6,6 @@ export HOME=/home/ubuntu
 
 sudo chown -R ubuntu:ubuntu $HOME
 
-whoami
-
 # Torch
 git clone https://github.com/torch/distro.git $HOME/torch --recursive
 cd $HOME/torch
