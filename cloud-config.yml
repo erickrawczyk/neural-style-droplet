@@ -17,18 +17,8 @@ packages:
 
 runcmd:
   - cd /home/ubuntu
-  - git clone https://github.com/torch/distro.git /home/ubuntu/torch --recursive
-  - cd /home/ubuntu/torch
-  - bash install-deps
-  - ./install.sh
-  - echo ". /home/ubuntu/torch/install/bin/torch-activate" >> /home/ubuntu/.bashrc
-  - source /home/ubuntu/.bashrc
-  - sudo luarocks install loadcaffe
-  - cd /home/ubuntu
-  - git clone https://github.com/jcjohnson/neural-style.git
-  - cd neural-style
-  - sh models/download_models.sh
-  - source /home/ubuntu/.bashrc
-  - echo true > /home/ubuntu/cloud-init-complete
+  - git clone https://github.com/erickrawczyk/neural-style-droplet.git
+  - cd /home/ubuntu/neural-style-droplet
+  - sudo -u ubuntu -g ubuntu bash init.sh
 
 output : { all : '| tee -a /var/log/cloud-init-output.log' }
