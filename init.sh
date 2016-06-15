@@ -14,12 +14,14 @@ cd $HOME/torch
 bash install-deps
 ./install.sh
 # echo ". /home/ubuntu/torch/install/bin/torch-activate" >> /home/ubuntu/.bashrc
+echo "does bashrc have torch-activate?"
+less $HOME/.bashrc | grep torch-activate
 source $HOME/.bashrc
 torch-activate
 
 # loadcaffe
 source $HOME/.bashrc
-sudo -u ubuntu -g ubuntu luarocks install loadcaffe
+luarocks install loadcaffe
 
 # neural-style
 cd $HOME
